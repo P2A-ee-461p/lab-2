@@ -27,7 +27,8 @@ print("Columns 1 and 3 are correlated")
 print("Columns 0 and 2 are correlated")
 
 print("Now we compute the covariance matrix using df.cov()")
-
+print("A covariant matrix shows the covariance between each pair of elements. The pair of features being shown by a given value is the value's position in the covariance matrix")
+print("This means that the diagonal of the covariance matrix is the variance of each individual feature")
 cov = df.cov()
 
 print("Which yields the following:")
@@ -47,7 +48,7 @@ data = []
 for i in range(1,20):
     samples = numpy.random.multivariate_normal(mean, cov, 2**i)
     df2 = pandas.DataFrame(samples)
-    data.append([i,df2.cov()[1].values[2]])
+    data.append([i,df2.cov()[1].values[2]]) #We extract the covariance between X2 and X3
 
 df2 = pandas.DataFrame(data)
 plot = df2.plot.scatter(0,1)
